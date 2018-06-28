@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookRunes E-mail Analytics</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  </head>
+
+
+
+
+
+  <body>
+
+    <div class="container" style="text-align: justify">
+      <br />
+
+      <h2 class="text-center"> Start Here </h2>
+      <br />
+      <h5>
+
+        The six graphs below provide a general overview of the health of your sending system over the past week. Total e-mails submitted should follow porportionally with your user growth rate. A dip here means there is probably something wrong with the system you're using to inject e-mails (not necessarily the platform or server itself). Check the API & the software or plugin you use to submit e-mails.
+
+        <br />
+        <br />
+
+        A rapid increase in sent e-mails combined with no change (or a decrease) in opens, plus a consistent submission rate, plus no increase in bounce rate suggests your e-mails are going through fine, but not landing in inboxes.
+
+        <br />
+        <br />
+
+        An increase in bounce rate combined with no noticeable changes in other areas suggests there is something wrong with your own system - or you are being throttled or blocked by a provider. See the graphs in the next section to troubleshoot further.
+
+        <br />
+        <br />
+
+        If you're using recent data, you will see a natural decline in opens which will normalize over a few days. However - you can use this data to troubleshoot any noticeable difference. If you believe your opens are lower than they should be, you can compare your trailing data to a previous week's rather than wait to see if the data averages out.
+
+        <br />
+        <br />
+
+        **Note 1: Sample data taken from ~20,000 users from the fiction genre on BookRunes. Data was taken mid-day June 26th and has not yet averaged out for opens (users open up their e-mails up to several days after receiving them). However, there are still several issues you can immediately identify and resolve.
+
+        <br />
+        <br />
+
+        **Note 2: All graphs were generated using python (matplotlib / pandas/ numpy). If you'd like to test some of our scripts out for yourself, please e-mail us at bookrunes@gmail.com. Outside of the ones below, we've built tools to analyze over 250+ data points to troubleshoot e-mail deliverability issues, maximize e-mail conversions, and increase sales.
+
+
+       </h5>
+     </div>
+
+
+    <div class="text-center">
+    <div>
+      
+      <img src="static/total_emails_submitted.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/growth_by_provider.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/percent_growth_total_opens.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+      <br />
+      <img src="static/total_sent.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/total_bounced.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/percent_sent_bounced.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+      <br />
+      <br />
+      <hr>
+
+      <br />
+      <br />
+
+    <div class="container" style="text-align: justify">
+      <h2 class="text-center"> Data by Provider </h2>
+      <br />
+      <h5> 
+
+        Here you'll be able to see if there is something wrong with your own system, or if an e-mail provider is blocking your server. Proportional changes across all providers is highly unlikely -- there is probably something wrong with your submission process. Otherwise, you should see a targeted decrease with only one provider. Consider warming up your IP for sending larger loads, splitting up your load between multiple servers, or adding additional quality checks (double e-mail validation, etc)
+
+      </h5>
+    </div>
+      <img src="static/gmail_bounced.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/gmail_opens.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/gmail_sent.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+<br />
+
+      <img src="static/yahoo_bounced.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/yahoo_opens.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/yahoo_sent.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+<br />
+
+      <img src="static/outlook_bounced.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/outlook_opens.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/outlook_sent.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+      <br />
+      <br />
+
+      <hr>
+
+      <br />
+      <br />
+
+   <div class="container" style="text-align: justify">
+      <h2 class="text-center"> Time to Send </h2>
+      <br />
+      <h5> 
+
+        Here you'll be able to easily check for sending speed bottlenecks and throttling. Ideally, send times should be clustered toward the bottom. An empty middle and heavy top and bottom means your server stopped sending for a period of time then resumed sending. A heavy top means there was something wrong with your initialization process. You can compare this graph with submission times to determine if it's something on your end or your e-mail provider's end.
+
+        An example of how to use this data to improve overall health: frequent outliers indicates multiple retries to send to the domain. You can use a seperate server and IP for these e-mail adresses to keep them from harming your reputation when sending to your top subscribers. I.e; segment your list by deliverability then split the load across your servers accordingly to maximize the chances of landing in the inboxes of your top subscribers.
+
+      </h5>
+    </div>
+      <img src="static/june26_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/june25_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/june24_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+      <br />
+      <br />
+
+      <img src="static/june23_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%">
+      <img src="static/june22_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+      <img src="static/june21_times.png" alt="Trulli" width="500" height="333" style="margin-top: 6%; margin-left: 4%">
+
+      <br />
+      <br />
+
+      <hr>
+
+      <br />
+
+
+
+   <div class="container" style="text-align: justify">
+      <h2 class="text-center"> Correlations for Marketing </h2>
+      <br />
+      <h5> 
+
+        You'll need to contact us for more details here. Correlations between variables are easy to get, it's engineering the data pipeline itself that's much more time consuming (and difficult to maintain).
+
+        To give a general idea of the process: imagine you're running three different marketing campaigns on facebook targetting 3 different categories of users (Amazon Kindle Readers, Goodreads readers, and genre specific readers). You'll want to keep track of each user's source (easiest way is to have different landing pages, or run your campaigns on different days and change what list you add your subscribers to). Then, take each of your seperate lists and determine their total open rate, churn rate, etc. This kind of analysis is especially important because although conversion rates up front might be the same across different ad campaigns - long-term customer value can differ drastically.
+
+
+      </h5>
+      <br />
+      <br />
+    </div>
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
